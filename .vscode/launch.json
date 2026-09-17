@@ -1,0 +1,148 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "name": "Debug executable 'e2e-tests'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "run",
+                    "--bin=e2e-tests",
+                    "--package=e2e-tests"
+                ]
+            },
+            "args": []
+        },
+        {
+            "name": "Debug unit tests in executable 'e2e-tests'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--bin=e2e-tests",
+                    "--package=e2e-tests"
+                ]
+            }
+        },
+       
+                {
+                    "name": "Debug RISC-V EVM counter",
+                    "type": "lldb",
+                    "request": "launch",
+                    "cargo": {
+                        "args": [
+                            "build",
+                            "--package",
+                            "counter_riscvim32_smart_contract_asm"
+                        ],
+                        "filter": {
+                            "name": "counter_riscvim32_smart_contract_asm",
+                            "kind": "bin"
+                        }
+                    },
+                    "args": [],
+                    "cwd": "${workspaceFolder}",
+                    "sourceLanguages": [
+                        "rust"
+                    ],
+                    "stopOnEntry": false
+                },
+        {
+            "name": "Debug unit tests in executable 'counter_riscvim32_smart_contract_asm'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--bin=counter_riscvim32_smart_contract_asm",
+                    "--package=counter_riscvim32_smart_contract_asm"
+                ]
+            }
+        },
+        {
+            "name": "Debug unit tests in library 'riscv_evm'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--package=riscv_evm"
+                ]
+            }
+        },
+        {
+            "name": "Debug unit tests in library 'riscv_evm_core'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--package=riscv_evm_core"
+                ]
+            }
+        },
+        {
+            "name": "Debug unit tests in library 'benchmarks'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--package=benchmarks"
+                ]
+            }
+        },
+        {
+            "name": "Debug benchmark 'erc20_evm'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--bench=erc20_evm",
+                    "--package=benchmarks"
+                ]
+            }
+        },
+        {
+            "name": "Debug benchmark 'erc20_riscv_evm'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--bench=erc20_riscv_evm",
+                    "--package=benchmarks"
+                ]
+            }
+        },
+        {
+            "name": "Debug unit tests in library 'handler'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--package=handler"
+                ]
+            }
+        },
+        {
+            "name": "Debug unit tests in library 'primitives'",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--package=primitives"
+                ]
+            }
+        }
+    ]
+}
