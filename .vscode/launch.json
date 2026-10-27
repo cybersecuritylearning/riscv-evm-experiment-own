@@ -54,6 +54,31 @@
                     "stopOnEntry": false
                 },
         {
+                    "name": "Debug RISC-V EVM counter interaction",
+                    "type": "lldb",
+                    "request": "launch",
+                    "cargo": {
+                        "args": [
+                            "run",
+                            "-p",
+                            "counter_riscvim32_smart_contract_asm",
+                            "--example",
+                            "interact"
+                        ],
+                        "filter": {
+                            "name": "counter_riscvim32_smart_contract_asm",
+                            "kind": "bin"
+                        }
+                    },
+                    "args": [],
+                    "cwd": "${workspaceFolder}",
+                    "sourceLanguages": [
+                        "rust"
+                    ],
+                    "stopOnEntry": false
+                }
+        
+                {
             "name": "Debug unit tests in executable 'counter_riscvim32_smart_contract_asm'",
             "type": "lldb",
             "request": "launch",

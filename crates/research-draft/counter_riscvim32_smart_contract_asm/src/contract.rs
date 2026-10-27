@@ -230,7 +230,8 @@ _getValue:
     ecall                           # Load counter value storing at [x9 - x16]
     
     # Writing this value to storage
-    addi x2, x2, -8           # Allocate stack space for uint256
+    #addi x2, x2, -8           # Allocate stack space for uint256
+    addi x2,zero,1024
     sw x9, 0(x2)             # Store counter_limb_1 at sp
     sw x10, 4(x2)             # Store counter_limb_2 at sp+4
     sw x11, 8(x2)             # Store counter_limb_3 at sp+8
@@ -243,7 +244,7 @@ _getValue:
     
     # Return the counter value   
     add x1, zero, x2                # mem_offset = 0
-    addi x2, zero, 8                # length = 8 bytes (uint256)
+    addi x2, zero, 32                # length = 32 bytes (uint256)
     addi x31, zero, ECALL_RETURN
     ecall
     
@@ -293,7 +294,8 @@ _setValue:
 
 _return_true:
     # Prepare return value 'true' (uint256(1))
-    addi x2, zero, -48           # Allocate stack space
+    #addi x2, zero, -48           # Allocate stack space
+    addi x2, zero, 1024           # this is the way
     addi x31, zero, ECALL_SSTORE
     addi x3, zero, 0
     addi x4, zero, 1
